@@ -41,14 +41,9 @@
 
 ---
 
-### :one:
+### :one: Metadata
 
-1. defer을 이용하는 것은 html파일이 파싱(pursuing)되는 동안 js파일을 동시에 다운받는다. 다만, html이 파싱이 모두 완료가 된 후에 자바스크립트가 실행되므로 defer가 굉장히 좋은 옵션이다.
-2.
-3.
-4.
-5. :sparkles: 이번 챕터의 핵심 :sparkles:
-   > `인라인 코드`
+- defer을 이용하는 것은 html파일이 파싱(pursuing)되는 동안 js파일을 동시에 다운받는다. 다만, html이 파싱이 모두 완료가 된 후에 자바스크립트가 실행되므로 defer가 굉장히 좋은 옵션이다.
 
 ```css
 <link rel="icon" type="image/png" href="imgs/favicon.png">
@@ -57,8 +52,6 @@ font-family: 'Open Sans', sans-serif;
 ```
 
 [Google Fonts](https://fonts.google.com/ "Google Fonts")
-
----
 
 ---
 
@@ -73,19 +66,58 @@ font-family: 'Open Sans', sans-serif;
 - M: Modifier(:종류)
 - :arrow_forward: 즉, 블럭/엘레멘트/모디파이어/로 나눠 이름 작성하는 것을 의미(: block\_\_element--modifier)
 - ex: .cards
--     .card
--     .card__img
--     .card__title
--     .card__description
--     .card__button
--     .button__pink
--     .button__blue
+  - .card
+  - .card\_\_img
+  - .card\_\_title
+  - .card\_\_description
+  - .card\_\_button
+  - .button\_\_pink
+  - .button\_\_blue
 
 :sparkles: 이번 챕터의 핵심 :sparkles:
 
 [BEM](http://getbem.com/introduction/ "BEM")
 [BEM 101 by CSS-Tricks](https://css-tricks.com/bem-101/ "BEM 101 by CSS-Tricks")
 [10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/ "10 Common Problems And How To Avoid Them")
+
+---
+
+### :two: Sectioning(1)
+
+- navbar/about/skills/work/testimonials/contact/처럼 sectioning 작업을 먼저 해준다.
+
+:sparkles: 이번 챕터의 핵심 :sparkles:
+
+```html
+<!-- Nav -->
+<nav id="navbar"></nav>
+<!-- About -->
+<section id="about"></section>
+<!-- Skills -->
+<section id="skills"></section>
+<!-- Work -->
+<section id="work"></section>
+<!-- Testimonials -->
+<section id="testimonials"></section>
+<!-- Contact -->
+<section id="contact"></section>
+```
+
+---
+
+### :three: Sectioning(2)
+
+- navbar/about/skills/work/testimonials/contact/처럼 sectioning해줬던 것들을 이용해 안의 내용들을 마크업해보자.
+
+:sparkles: 이번 챕터의 핵심 :sparkles:
+
+```html
+<!-- Nav -->
+<nav id="navbar">
+  <div class="navbar__logo"></div>
+  <div class="navbar__menu"></div>
+</nav>
+```
 
 ---
 
