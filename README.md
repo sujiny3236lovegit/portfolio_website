@@ -65,7 +65,8 @@ font-family: 'Open Sans', sans-serif;
 - E: Element(:'블록 안에 있는' 더이상 나뉠수없는 개개별 객체들)
 - M: Modifier(:종류)
 - :arrow_forward: 즉, 블럭/엘레멘트/모디파이어/로 나눠 이름 작성하는 것을 의미(: block\_\_element--modifier)
-- ex: .cards
+- ex:
+  - .cards
   - .card
   - .card\_\_img
   - .card\_\_title
