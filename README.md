@@ -386,7 +386,7 @@ body {
 ```css
 .navbar__menu__item.active{
   ...
-  border: wh
+  border:
 }
 ```
 
@@ -398,30 +398,22 @@ body {
 
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
-
 ---
 
 ### :two: Home
 
--
--
--
--
-
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
-
-```javascript
-function test() {
-  console.log("hello world!");
+```css
+#home {
+  background: url("imgs/home-background.png") center/cover no-repeat;
+  padding: 40px;
+  text-align: center;
 }
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
-
----
+- `center/cover no-repeat`은
+- `text-align: center;`는
+-
+- ***
 
 ### :three: About me
 
