@@ -358,35 +358,44 @@ p {
 }
 ```
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
-
-```javascript
-function test() {
-  console.log("hello world!");
-}
-```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
-
 ---
 
 ### :one: Nav
 
--
--
--
--
+- 기본적으로 logo와 nav는 block레벨이므로 한줄에 하나씩인 것을 볼 수 있다.
+- :star:`cursor: default;`는 웹페이지 전체의 mouse cursor모양을 text cursor모양이 아닌, 우리가 일반적으로 알고 있는 **화살표 모양**으로 바꿔준다.(default는 기본값)
+
+```css
+body {
+  ...
+  cursor: default;
+}
+```
+
+- menu부분의 active를 하나 추가한 후 navbar**menu**item은 `cursor: pointer;`로 해준다.
+
+```css
+.navbar__menu__item {
+  ...
+  cursor: pointer;
+}
+```
+
+- active된 상태일 때의 스타일 지정
+
+```css
+.navbar__menu__item.active{
+  ...
+  border: wh
+}
+```
 
 :sparkles: 이번 챕터의 핵심 :sparkles:
 
 > `인라인 코드`
 
-```javascript
-function test() {
-  console.log("hello world!");
-}
+```css
+
 ```
 
 [Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
