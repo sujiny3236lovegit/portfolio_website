@@ -325,10 +325,38 @@ function test() {
 
 ### :zero: Global set up & typography(2)
 
--
--
--
--
+- 웹페이지 전체에서 쓰일 h1,h2,h3,p의 스타일링을 먼저 설정하고 시작하자.(=> **typography**라 한다.)
+
+```css
+/* Typography */
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin: 16px 0px;
+}
+
+h2 {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+p {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 4px 0;
+}
+```
 
 :sparkles: 이번 챕터의 핵심 :sparkles:
 
