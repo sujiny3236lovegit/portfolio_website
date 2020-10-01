@@ -390,14 +390,6 @@ body {
 }
 ```
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
-
-```css
-
-```
-
 ---
 
 ### :two: Home
@@ -412,14 +404,23 @@ body {
 
 - `center/cover no-repeat`은
 - `text-align: center;`는
--
-- ***
+
+---
 
 ### :three: About me
 
--
--
--
+- **Section common**을 지정해보자
+
+```css
+.section {
+  padding: 50px;
+  text-align: center;
+  max-width: 1200px;
+}
+```
+
+- `max-width: 1200px;`을 지정하는 이유는 보통 데스크탑에서 편히 볼 수 있는 너비이다.
+- `display: flex;`는 한줄에 하나로 몰아 놓도록 묶어주는 것.
 -
 -
 -
