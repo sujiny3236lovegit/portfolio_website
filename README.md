@@ -441,6 +441,17 @@ function test() {
 
 ### :four: Skills
 
+- `flex-basis: 60%;` 처럼 분할된 아이템들의 크기가 자동적으로 늘어나게 하기 위해서는 **아이템별로 flex-basis**를 줘야한다.
+
+```css
+.skillset__left {
+  flex-basis: 60%;
+}
+.skillset__right {
+  flex-basis: 40%;
+}
+```
+
 -
 -
 -
