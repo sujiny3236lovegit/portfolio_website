@@ -452,40 +452,43 @@ function test() {
 }
 ```
 
--
--
--
--
-
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
-
-```javascript
-function test() {
-  console.log("hello world!");
-}
-```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
-
 ---
 
 ### :five: Work (projects)
 
--
+- `active`라는 클래스를 이용해, active되거나 hover되면 색상이 변화되도록 해보자.
+
+```html
+<button class="category__btn active"></button>
+```
+
+```css
+.category__btn.active,
+.category__btn:hover {
+  background-color: var(--color-pink);
+}
+```
+
+- **재미있는 효과주기**: `category__btn`이 hover, active인 상태일때 `category__count`의 효과.
+
+```css
+.category__btn:hover .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+```
+
 -
 -
 -
 
 :sparkles: 이번 챕터의 핵심 :sparkles:
 
-> `인라인 코드`
+> `active`
 
-```javascript
-function test() {
-  console.log("hello world!");
-}
+```html
+<button class="category__btn active"></button>
 ```
 
 [Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
