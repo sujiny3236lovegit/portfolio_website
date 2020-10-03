@@ -472,7 +472,7 @@ function test() {
 - **재미있는 효과주기**: `category__btn`이 hover, active인 상태일때 `category__count`의 효과.
 
 ```css
-.category__btn:hover .category__count,
+.category__btn:active .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   top: 0;
