@@ -292,23 +292,39 @@ function test() {
 
 ```css
 /*Global*/
+/* Global */
 :root {
-  /*  Color */
+  /* Color */
   --color-white: #ffffff;
   --color-light-white: #eeeeee;
-  ...
+  --color-dark-white: #bdbdbd;
+  --color-pink: #fe918d;
+  --color-dark-pink: #ff6863;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #7c7979;
+  --color-blue: #73aace;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;
 
   /* Font size */
   --font-large: 48px;
   --font-medium: 28px;
-  ...
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
 
   /* Font weight */
   --weight-bold: 700;
   --weight-semi-bold: 600;
-  ...
+  --weight-regular: 400;
 
   /* Size */
+  --size-border-radius: 4px;
+
+  /* Animation */
+  --animation-duration: 300ms;
 }
 ```
 
@@ -318,6 +334,29 @@ function test() {
 /* Universal tags */
 * {
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 ```
 
@@ -390,15 +429,75 @@ body {
 }
 ```
 
+```css
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-pink);
+  align-items: center;
+  color: var(--color-white);
+  padding: 16px;
+}
+
+.navbar__logo {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+}
+
+.navbar__menu {
+  display: flex;
+}
+
+.navbar__menu__item {
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+  border: 1px solid var(--color-white);
+}
+
+.navbar__menu__item:hover {
+  background-color: var(--color-dark-pink);
+  border-radius: var(--size-border-radius);
+}
+```
+
 ---
 
 ### :two: Home
 
 ```css
+/* Home */
 #home {
   background: url("imgs/home-background.png") center/cover no-repeat;
   padding: 40px;
   text-align: center;
+}
+
+.home__avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid var(--color-light-white);
+}
+
+.home__title,
+.home__description {
+  color: var(--color-white);
+}
+
+.home__contact {
+  color: var(--color-white);
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  margin: 24px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-white);
+  border-radius: var(--size-border-radius);
 }
 ```
 
@@ -421,21 +520,68 @@ body {
 
 - `max-width: 1200px;`을 지정하는 이유는 보통 데스크탑에서 편히 볼 수 있는 너비이다.
 - `display: flex;`는 한줄에 하나로 몰아 놓도록 묶어주는 것.
--
--
--
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
+```css
+/* About */
+.about__majors {
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 0;
+}
 
-> `인라인 코드`
+.major__icon {
+  width: 170px;
+  height: 170px;
+  line-height: 170px;
+  font-size: 70px;
+  margin: auto;
+  border: 2px solid var(--color-blue);
+  border-radius: 50%;
+  margin-bottom: 16px;
+  color: var(--color-blue);
+}
 
-```javascript
-function test() {
-  console.log("hello world!");
+.major__icon i {
+  transition: all var(--animation-duration) ease;
+}
+
+.major__icon:hover i {
+  color: var(--color-pink);
+  transform: rotate(-30deg) scale(1.1);
+}
+
+.major__title,
+.major__description {
+  color: var(--color-dark-grey);
+}
+
+.major__description {
+  font-size: var(--font-small);
+}
+
+.job {
+  display: flex;
+  align-items: center;
+}
+
+.job__description {
+  margin: 0 16px;
+  text-align: left;
+}
+
+.job__name,
+.job__period {
+  color: var(--color-light-grey);
+}
+
+.job__name {
+  font-size: var(--font-small);
+}
+
+.job__period {
+  font-size: var(--font-micro);
 }
 ```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
 
 ---
 
@@ -449,6 +595,64 @@ function test() {
 }
 .skillset__right {
   flex-basis: 40%;
+}
+```
+
+```css
+/* Skills */
+#skills {
+  background-color: var(--color-yellow);
+}
+
+.skillset {
+  display: flex;
+  background-color: var(--color-light-grey);
+  color: var(--color-light-white);
+  margin: 20px 0;
+}
+
+.skillset__title {
+  color: var(--color-white);
+}
+
+.skill__description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skillset__left {
+  flex-basis: 60%;
+  background-color: var(--color-dark-grey);
+  padding: 20px 40px;
+}
+
+.skill {
+  margin-bottom: 32px;
+}
+
+.skill__bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-grey);
+}
+
+.skill__value {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-orange);
+}
+
+.skillset__right {
+  flex-basis: 40%;
+}
+
+.tools {
+  background-color: var(--color-grey);
+}
+
+.tools,
+.etc {
+  padding: 20px;
 }
 ```
 
@@ -479,123 +683,255 @@ function test() {
 }
 ```
 
--
--
--
-
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `active`
+- `active`
 
 ```html
 <button class="category__btn active"></button>
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
+```css
+/* Work */
+.work__categories {
+  margin: 40px;
+}
+
+.category__btn {
+  border: 1px solid var(--color-dark-white);
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+
+.category__btn.active,
+.category__btn:hover {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+}
+
+.category__count {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  opacity: 0;
+  transition: all var(--animation-duration) ease-in;
+}
+
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+
+.work__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 250px;
+  margin: 2px;
+  background-color: var(--color-light-white);
+}
+
+.project__img {
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
+}
+
+.project__description {
+  position: absolute;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--animation-duration) ease-in;
+}
+
+.project:hover .project__description {
+  opacity: 0.8;
+  transform: translateY(0px);
+}
+
+.project__description h3 {
+  color: var(--color-white);
+}
+
+.project__description h3:after {
+  content: "";
+  display: block;
+  position: relative;
+  left: 50%;
+  width: 25px;
+  height: 2px;
+  margin-left: -12px;
+  margin-top: 8px;
+  background-color: var(--color-dark-white);
+}
+```
 
 ---
 
 ### :six: Testimonials
 
--
--
--
--
+```css
+/* Testimonials */
+#testimonials {
+  background-color: var(--color-light-white);
+}
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
+.testimonials {
+  margin: 40px;
+}
 
-> `인라인 코드`
+.testimonial {
+  display: flex;
+  margin: 32px 0;
+}
 
-```javascript
-function test() {
-  console.log("hello world!");
+.testimonial__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.testimonial__avatar:nth-child(odd) {
+  margin-right: 40px;
+}
+
+.testimonial__avatar:nth-child(even) {
+  margin-left: 40px;
+}
+
+.testimonial__speech-bubble {
+  padding: 18px;
+  background-color: var(--color-white);
+  border-radius: var(--size-border-radius);
+}
+
+.testimonial__speech-bubble {
+  color: var(--color-light-white);
+}
+
+.testimonial__speech-bubble a {
+  color: var(--color-pink);
 }
 ```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
 
 ---
 
 ### :seven: Contact
 
--
--
--
+```css
+/* Contact */
+#contact {
+  background-color: var(--color-pink);
+}
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
+.contact__title,
+.contact__email,
+.contact__rights {
+  color: var(--color-white);
+}
 
-> `인라인 코드`
+.contact__title {
+  margin: 32px 0;
+}
 
-```javascript
-function test() {
-  console.log("hello world!");
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+}
+
+.contact__links i {
+  transition: var(--animation-duration) ease-in;
+}
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: var(--color-yellow);
 }
 ```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
 
 ---
 
-### :eight: Final touch
+### :eight: Make it responsive nav
 
--
--
--
--
-
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
-
-```javascript
-function test() {
-  console.log("hello world!");
+```css
+/* Toggle */
+.navbar__toggle-btn {
+  position: absolute;
+  display: none; /* 브라우저 너비가 768px 이상일 경우엔 보이지 않아야 한다. */
+  top: 24px;
+  right: 32px;
+  font-size: 24px;
+  color: var(--color-white);
 }
 ```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
 
 ---
 
-### : nine : Make it responsive nav
+### :nine: Responsive web site
 
--
--
--
--
+```css
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+  .navbar__toggle-btn {
+    display: block; /* 보이지 않았던 toggle이 보이게. */
+  }
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-> `인라인 코드`
+  .navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
 
-```javascript
-function test() {
-  console.log("hello world!");
+  .about__majors {
+    flex-direction: column;
+  }
+
+  .major {
+    margin-bottom: 38px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1;
+  }
+
+  .testimonial__avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
 ```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
-
----
-
-### :ten: Responsive web site
-
--
--
--
--
-
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
-
-```javascript
-function test() {
-  console.log("hello world!");
-}
-```
-
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
 
 ---
 
@@ -605,22 +941,70 @@ function test() {
 
 ### :one: Transparent navbar
 
--
--
--
--
+- **navbar를 투명하게 한 후, 스크롤링 시 진한색상으로 변경되는 효과주기**
+- css 먼저.
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
-
-```javascript
-function test() {
-  console.log("hello world!");
+```css
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-pink);
+  align-items: center;
+  color: var(--color-white);
+  padding: 16px;
 }
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
+:arrow_down_small::arrow_down_small::arrow_down_small:
+
+```css
+#navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  align-items: center;
+  color: var(--color-white);
+  padding: 16px;
+}
+```
+
+- 이제 **JS로 해야하는 것**
+- 1. 스크롤링되는 걸 알아야한다. 스크롤링 되면 navbar높이만큼 내려갔을때 navbar를 핑크색상으로 바꿔보자.
+- 2. 먼저 윈도우가 스크롤링될 때, navbar의 height를 알아와야 한다. (height만큼 스크롤링 되면 배경색을 바꿔줄 것이므로.)
+- 구글 검색키워드: `javascript scroll position`, `javascript element size`
+
+```javascript
+const navbar = document.querySelector("#navbar");
+const navbarHeight = navbar.getBoundingClientRect().height;
+document.addEventListener("scroll", () => {
+  console.log(window.scrollY);
+  console.log(`navbarHeight: ${navbarHeight}`);
+  if (window.scrollY > navbarHeight) {
+    navbar.classList.add("navbar--dark");
+  } else {
+    navbar.classList.remove("navbar--dark");
+  }
+});
+```
+
+- 이제 **CSS로 해야하는 것**
+
+```css
+  ...
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+#navbar.navbar--dark {
+  background-color: var(--color-pink);
+  padding: 8px;
+}
+
+```
+
+[Window.scrollY](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY "Window.scrollY")
+[Determining the dimensions of elements](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements "Determining the dimensions of elements")
 
 ---
 
