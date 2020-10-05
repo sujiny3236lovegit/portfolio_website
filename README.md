@@ -994,6 +994,7 @@ document.addEventListener("scroll", () => {
 ```css
   ...
   transition: all var(--animation-duration) ease-in-out;
+  z-index: 1;
 }
 
 #navbar.navbar--dark {
@@ -1010,19 +1011,50 @@ document.addEventListener("scroll", () => {
 
 ### :two: Scroll to section
 
--
--
--
--
+- 아이템을 **클릭하면 원하는 섹션으로 스크롤링 되는 것**을 해보자.
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
+1. navbarMenu라는 상수에 querySelector로 값을 받아오자.
 
 ```javascript
-function test() {
-  console.log("hello world!");
-}
+const navbarMenu = document.querySelector(".navbar__menu");
+```
+
+2. navbarMenu에 클릭이 되면, 내가 등록한 함수()가 클릭이 되게 할 것이다.(dataset에 data들이 할당되어진다.)
+
+```javascript
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
+  console.log(event.target.dataset.link);
+});
+```
+
+- 이동하고자 하는 섹션의 id를 받아오긴 했는데 이것들을 통해 어떻게 스크롤링 할 수 있을까?
+- 구글검색: `Javascript scroll to id`
+
+```javascript
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
+  console.log(event.target.dataset.link);
+  const target = event.target;
+  const link = target.dataset.link;
+});
+```
+
+- 우리가 가려는 element는 scrollTo라는 상수에, document.querySelector()를 이용해 ()안에는 link를 받아와서, scrollTo에 scrollIntoView()로 옵션은 { behavior: "smooth" }를 넣는다.
+
+```javascript
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
+  console.log(event.target.dataset.link);
+  const target = event.target;
+  const link = target.dataset.link;
+  if (link == null) {
+    return;
+  }
+  console.log(event.target.dataset.link);
+  const scrollTo = document.querySelector(link);
+  scrollTo.scrollIntoView({ behavior: "smooth" });
+});
 ```
 
 [Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
