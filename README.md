@@ -972,7 +972,7 @@ body {
 
 - 이제 **JS로 해야하는 것**
 - 1. 스크롤링되는 걸 알아야한다. 스크롤링 되면 navbar높이만큼 내려갔을때 navbar를 핑크색상으로 바꿔보자.
-- 2. 먼저 윈도우가 스크롤링될 때, navbar의 height를 알아와야 한다. (height만큼 스크롤링 되면 배경색을 바꿔줄 것이므로.)
+- 2. 먼저 윈도우가 스크롤링될 때, navbar의 height를 알아와야 한다. (height만큼 스크롤링 되면 배경색을 바꿔줄 것이므로.)=>**getBoundingClientRect**
 - 구글 검색키워드: `javascript scroll position`, `javascript element size`
 
 ```javascript
@@ -1127,22 +1127,32 @@ function scrollIntoView(selector) {
 
 ### :four: Transparent home
 
--
--
--
--
-
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
+- 브라우저가 아래로 스크롤되면서 점점 투명하게 되는 효과주기
+- 1. 먼저 home의 높이를 알아와야하므로 querySelector를 이용해 home의 요소를 가져오자.(#home)
 
 ```javascript
-function test() {
-  console.log("hello world!");
-}
+const home = document.queryselector("#home");
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
+- 2. home의 높이도 지정해서 가져오자.
+
+```javascript
+const homeHeight = home.getBoundingClientRect().height;
+```
+
+- 3. document에 이벤트를 추가할것인데, scroll하게 되면 내가 등록한 함수를 호출해줘.
+
+```javascript
+document.addEventListener("scroll", () => {});
+```
+
+- 4. 공식을 하나 만들어보자.=> opacity가 0이면 투명, 1이면 완전 불투명이다. `1 - window.scrollY / homeHeight;`
+
+```javascript
+document.addEventListener("scroll", () => {
+  home.style.opacity = 1 - window.scrollY.homeHeight;
+});
+```
 
 ---
 
