@@ -36,8 +36,25 @@ document.addEventListener("scroll", () => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
+//스크롤링되면 화살표아이콘이 보이도록 하기
+const arrowUp = document.querySelector(".arrow-up");
+document.addEventListener("scroll", () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add("visible");
+  } else {
+    arrowUp.classList.remove("visible");
+  }
+});
+
+//화살표아이콘 클릭하면 홈으로 올라가게 하기
+arrowUp.addEventListener("click", () => {
+  scrollIntoView("#home");
+});
+
 //함수 추가(selector만 추가하면 이동할 수있는 함수)
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
+
+//스크롤링되면 화살표아이콘이 보이도록 하기

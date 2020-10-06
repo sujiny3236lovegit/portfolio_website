@@ -1140,7 +1140,7 @@ const home = document.queryselector("#home");
 const homeHeight = home.getBoundingClientRect().height;
 ```
 
-- 3. document에 이벤트를 추가할것인데, scroll하게 되면 내가 등록한 함수를 호출해줘.
+- 3. document에 이벤트를 추가할것인데, scroll하게 되면 내가 등록한 함수를 호출.
 
 ```javascript
 document.addEventListener("scroll", () => {});
@@ -1158,22 +1158,81 @@ document.addEventListener("scroll", () => {
 
 ### :five: Arrow up button
 
--
--
--
--
+- html, css에서 가장 하단 (css에선 media query바로 위)에 다음과 arrow 아이콘을 위한 코드를 추가한다.
 
-:sparkles: 이번 챕터의 핵심 :sparkles:
+```html
+<!-- Arrow up -->
+<button class="arrow-up">
+  <i class="fas fa-chevron-circle-up"></i>
+</button>
+```
 
-> `인라인 코드`
+- 원래는 안보이다가 스크롤링이 되면 보이게 해야하기 때문에 `display: none`을 추가하고 보이는 class, 즉 `.visible`일때만 (보이는 class가 있을 때만) display: block을 할것
 
-```javascript
-function test() {
-  console.log("hello world!");
+```css
+/* Scroll(Arrow up) */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  color: var(--color-white);
+  background-color: var(--color-pink);
+  display: none;
+}
+
+.arrow-up.visible {
+  display: block;
 }
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
+- 스크롤링이 되면 arrow가 나타나도록 해보자.
+
+```javascript
+const arrowUp = document.querySelector(".arrow-up");
+document.addEventListener("scroll", () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add("visible");
+  } else {
+    arrowUp.classList.remove("visible");
+  }
+});
+```
+
+- css를 조금 추가하고 수정하자.
+
+```css
+/* Scroll(Arrow up) */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  color: var(--color-white);
+  background-color: var(--color-dark-pink);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in;
+}
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+```
+
+- 화살표아이콘 클릭하면 홈으로 올라가게 해보자.
+
+```javascript
+arrowUp.addEventListener("click", () => {
+  scrollIntoView("#home");
+});
+```
 
 ---
 
