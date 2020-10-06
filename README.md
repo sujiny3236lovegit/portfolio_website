@@ -1028,6 +1028,17 @@ navbarMenu.addEventListener("click", (event) => {
 });
 ```
 
+```html
+<ul class="navbar__menu">
+  <li class="navbar__menu__item active" data-link="#home">Home</li>
+  <li class="navbar__menu__item" data-link="#about">About</li>
+  <li class="navbar__menu__item" data-link="#skills">Skills</li>
+  <li class="navbar__menu__item" data-link="#work">My work</li>
+  <li class="navbar__menu__item" data-link="#testimonials">Testimonials</li>
+  <li class="navbar__menu__item" data-link="#contact">Contact</li>
+</ul>
+```
+
 - 이동하고자 하는 섹션의 id를 받아오긴 했는데 이것들을 통해 어떻게 스크롤링 할 수 있을까?
 - 구글검색: `Javascript scroll to id`
 
@@ -1057,28 +1068,60 @@ navbarMenu.addEventListener("click", (event) => {
 });
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
+[scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView "scrollIntoView")
 
 ---
 
 ### :three: Handle contact me button
 
--
--
--
--
-
-:sparkles: 이번 챕터의 핵심 :sparkles:
-
-> `인라인 코드`
+- '연락하기'버튼을 클릭했을때, 하단의 Contact 섹션으로 내려가게 하려면 homeContactBtn값을 받아와 querySelector를 이용해서 id값을 받아와야한다.
 
 ```javascript
-function test() {
-  console.log("hello world!");
+const homeContactBtn = document.querySelector(".home__contact");
+```
+
+- homeContactBtn에 event를 추가해서, click이되면 내가 정의한 함수가 호출되도록 한다.
+
+```javascript
+homeContactBtn.addEventListener("click", () => {
+  const scrollTo = document.querySelector(link);
+  scrollTo.scrollIntoView({ behavior: "smooth" });
+});
+```
+
+- 이런 문법이 계속 반복될거같으니 selector만 추가하면 이동할 수 있는 함수를 추가해보자. 즉, selector만 주면 selector에 맞는 요소를 찾은 다음 스무스하게 이동하는 함수를 추가했다.
+
+```javascript
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: smooth });
 }
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
+- selector만 추가하면 되니 위의 selector를 추가하고 반복되는 코드들은 리팩토링해보자.
+
+```javascript
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
+  console.log(event.target.dataset.link);
+  const target = event.target;
+  const link = target.dataset.link;
+  if (link == null) {
+    return;
+  }
+  scrollIntoView(link); //selector
+});
+
+const homeContactBtn = document.querySelector(".home__contact");
+homeContactBtn.addEventListener("click", () => {
+  scrollIntoView("#contact"); //selector
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: smooth });
+}
+```
 
 ---
 

@@ -22,7 +22,17 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return;
   }
-  console.log(event.target.dataset.link);
-  const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({ behavior: "smooth" });
+  scrollIntoView(link);
 });
+
+//(Home안에 있는)'연락하기'버튼을 클릭하면 하단의 Contact 섹션으로 내려갈 수 있게 하기
+const homeContactBtn = document.querySelector(".home__contact");
+homeContactBtn.addEventListener("click", () => {
+  scrollIntoView("#contact");
+});
+
+//함수 추가(selector만 추가하면 이동할 수있는 함수)
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: smooth });
+}
