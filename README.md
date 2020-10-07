@@ -1303,8 +1303,8 @@ function test() {
 
 ### :seven: Project filtering
 
--
--
+- **projects의 active state위치 수정**과 **navbar에서 아이템들을 선택하면 해당 section들이 하이라이트**되도록 해보자.
+- 현재 클릭된 애한테 active가 넘어가도록 해보자.
 -
 -
 
