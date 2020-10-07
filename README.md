@@ -1238,10 +1238,54 @@ arrowUp.addEventListener("click", () => {
 
 ### :six: Project filtering & animation
 
+- 프로젝트 탭을 클릭할 시에 원하는 아이템들만 필터링 되서 띄어지게 해보자. 전체적인 애니메이션이 일어나면서 필터링 된 아이들이 나오게 보이려면 **html에 data를 이용하기**
+
+```html
+<div class="work__categories">
+  <button class="category__btn active" data-filter="*">
+    All<span class="category__count">8</span>
+  </button>
+  <button class="category__btn" data-filter="front-end">
+    Front-end<span class="category__count">3</span>
+  </button>
+  <button class="category__btn" data-filter="back-end">
+    Back-end<span class="category__count">3</span>
+  </button>
+  <button class="category__btn" data-filter="mobile">
+    Mobile<span class="category__count">2</span>
+  </button>
+</div>
+<div class="work__projects">
+  <a
+    href="https://github.com/sujiny3236lovegit/portfolio.git"
+    class="project"
+    target="blank"
+    data-type="front-end"
+  >
+    ...
+  </a>
+</div>
+```
+
+- js작업을 해보자.
 -
 -
--
--
+- `projects.forEach((project) => {});`는 다음 코드들과 같다.
+
+```javascript
+projects.forEach((project) => {});
+```
+
+```javascript
+for (let project of projects) {
+}
+```
+
+```javascript
+for (let i = 0; i < projects.length; i++) {
+  project = projects[i];
+}
+```
 
 :sparkles: 이번 챕터의 핵심 :sparkles:
 
@@ -1253,7 +1297,7 @@ function test() {
 }
 ```
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing "Box model")
+## [Use_data_attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes "Use_data_attributes")
 
 ---
 
