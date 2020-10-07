@@ -1322,9 +1322,9 @@ function test() {
 
 ---
 
-### :eight: Project animation
+### :eight: Navbar toggle button
 
--
+- Toggle(hamburger) button을 클릭해서 아래로 내려오는 효과를 줘보자.
 -
 -
 -
